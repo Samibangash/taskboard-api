@@ -220,7 +220,7 @@ taskboard-api/
 
 ## 8) Notes
 
-- **Authentication** is not implemented (out of scope for this test). You can add JWT later.
+- **Authentication** is not implemented (out of scope for this test) add JWT later.
 - The `seed` script creates two users, a board with both users as members, and three tasks.
 - Text indexes are added on Task `title` and `description` for efficient search.
 - Cache invalidation uses Redis `SCAN` to delete all task keys for a board safely.
