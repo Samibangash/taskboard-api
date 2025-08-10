@@ -1,0 +1,132 @@
+{
+  "info": {
+    "name": "Taskboard API",
+    "_postman_id": "8f0a0edb-1111-2222-3333-444455556666",
+    "description": "Postman collection for the Taskboard API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Board",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"title\": \"Demo Board\", \"members\": []}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/boards",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "boards"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Task",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"title\": \"First task\", \"description\": \"Try things\", \"status\": \"todo\"}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/boards/{{boardId}}/tasks",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "boards",
+            "{{boardId}}",
+            "tasks"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Tasks (cached)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/boards/{{boardId}}/tasks?status=todo&search=first&sort=desc&page=1&limit=5",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "boards",
+            "{{boardId}}",
+            "tasks"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "todo"
+            },
+            {
+              "key": "search",
+              "value": "first"
+            },
+            {
+              "key": "sort",
+              "value": "desc"
+            },
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "5"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:4000"
+    },
+    {
+      "key": "boardId",
+      "value": ""
+    }
+  ]
+}
